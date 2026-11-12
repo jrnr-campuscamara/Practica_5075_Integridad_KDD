@@ -1,0 +1,2 @@
+# fichero | hash_esperado | hash_calculado
+transacciones_tienda_sur.csv | 0773c2cde0d45d3bfea53ebe6a0ad9f8fd7f04dabd23f55e737f64918128b83c | 1c47dff4bf34eff59390c211052be942851d158740366ab4ab35159fd9986805

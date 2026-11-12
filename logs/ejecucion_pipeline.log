@@ -1,0 +1,42 @@
+2026-11-12 19:31:43 [INFO] [FASE1] === Inicio verificación de integridad del lote raw_batch_202611 ===
+2026-11-12 19:31:43 [INFO] [FASE1] Manifiesto cargado: 3 firmas oficiales
+2026-11-12 19:31:43 [INFO] [FASE1] OK      transacciones_tienda_norte.csv -> staging/verified/
+2026-11-12 19:31:43 [WARNING] [FASE1] ALERTA  transacciones_tienda_sur.csv FIRMA DISCREPANTE -> quarantine/tampered/ (esperado=0773c2cde0d45d3b... calculado=1c47dff4bf34eff5...)
+2026-11-12 19:31:43 [INFO] [FASE1] OK      transacciones_tienda_este.csv -> staging/verified/
+2026-11-12 19:31:43 [INFO] [FASE1] Resumen Fase 1: 2 validados, 1 rechazados de 3 (integridad 66.67 %)
+2026-11-12 19:31:43 [INFO] [FASE1] === Fin verificación de integridad ===
+2026-11-12 19:31:43 [INFO] [FASE2] === Inicio pipeline de saneamiento ===
+2026-11-12 19:31:43 [INFO] [FASE2] Cargado transacciones_tienda_este.csv: 50 registros
+2026-11-12 19:31:43 [INFO] [FASE2] Cargado transacciones_tienda_norte.csv: 50 registros
+2026-11-12 19:31:43 [INFO] [FASE2] Total registros cargados: 100
+2026-11-12 19:31:43 [INFO] [FASE2] Completitud del lote en bruto: 95/100 registros sin nulos (95.00 %)
+2026-11-12 19:31:43 [INFO] [FASE2] Nulos detectados en 'id_transaccion': 2
+2026-11-12 19:31:43 [INFO] [FASE2] Nulos detectados en 'categoria': 1
+2026-11-12 19:31:43 [INFO] [FASE2] Nulos detectados en 'importe_eur': 1
+2026-11-12 19:31:43 [INFO] [FASE2] Nulos detectados en 'metodo_pago': 1
+2026-11-12 19:31:43 [WARNING] [FASE2] Rechazados 2 registros por nulo en 'id_transaccion'
+2026-11-12 19:31:43 [WARNING] [FASE2] Rechazados 1 registros por nulo en 'importe_eur'
+2026-11-12 19:31:43 [INFO] [FASE2] Imputados 1 nulos en 'categoria' con 'Desconocido'
+2026-11-12 19:31:43 [INFO] [FASE2] Imputados 1 nulos en 'metodo_pago' con 'Desconocido'
+2026-11-12 19:31:43 [WARNING] [FASE2] TIMESTAMP_INVALIDO: TXE-20261110-0039 (timestamp='2026-99-99 INVALID_TS')
+2026-11-12 19:31:43 [WARNING] [FASE2] TIMESTAMP_FUTURO: TXE-20261110-0010 (timestamp='2027-08-21 14:22:10')
+2026-11-12 19:31:43 [WARNING] [FASE2] TIMESTAMP_ANTERIOR_AL_ANIO_EN_CURSO: TXE-20261110-0022 (timestamp='2024-02-11 09:10:05')
+2026-11-12 19:31:43 [INFO] [FASE2] Validación temporal: 3 registros rechazados
+2026-11-12 19:31:43 [WARNING] [FASE2] IMPORTE_NO_POSITIVO: TXE-20261110-0012 (importe_eur=-34.5, unidades=2)
+2026-11-12 19:31:43 [WARNING] [FASE2] IMPORTE_NO_POSITIVO: TXE-20261110-0018 (importe_eur=0.0, unidades=2)
+2026-11-12 19:31:43 [WARNING] [FASE2] UNIDADES_MENOR_QUE_1: TXE-20261110-0025 (importe_eur=57.52, unidades=0)
+2026-11-12 19:31:43 [WARNING] [FASE2] UNIDADES_MENOR_QUE_1: TXE-20261110-0042 (importe_eur=115.74, unidades=-3)
+2026-11-12 19:31:43 [INFO] [FASE2] Validación de dominio: 4 registros rechazados
+2026-11-12 19:31:43 [INFO] [FASE2] Outliers 'importe_eur': Q1=55.22 Q3=88.57 IQR=33.36 -> rango válido [5.18, 138.61]
+2026-11-12 19:31:43 [WARNING] [FASE2] OUTLIER: TXE-20261110-0016 (importe_eur=1480.00 fuera de [5.18, 138.61])
+2026-11-12 19:31:43 [WARNING] [FASE2] OUTLIER: TXE-20261110-0032 (importe_eur=2750.90 fuera de [5.18, 138.61])
+2026-11-12 19:31:43 [WARNING] [FASE2] OUTLIER: TXE-20261110-0047 (importe_eur=4120.00 fuera de [5.18, 138.61])
+2026-11-12 19:31:43 [INFO] [FASE2] Detección de outliers: 3 registros rechazados
+2026-11-12 19:31:43 [INFO] [FASE2] Validación de unicidad: 0 duplicados
+2026-11-12 19:31:43 [INFO] [FASE2] Dataset limpio exportado: 87 registros -> processed/dataset_kdd_listo.csv
+2026-11-12 19:31:43 [INFO] [FASE2] Registros en cuarentena: 13 -> quarantine/bad_records.csv
+2026-11-12 19:31:43 [INFO] [FASE2] Perfilado: integridad=66.67% completitud_bruto=95.00% validez=87.00% unicidad=100.00%
+2026-11-12 19:31:43 [INFO] [FASE2] Perfilado importe_eur: media=70.99 mediana=73.44 std=26.34 p25=53.80 p75=85.34
+2026-11-12 19:31:43 [INFO] [FASE2] Métricas guardadas en output_samples/metricas_perfilado.json
+2026-11-12 19:31:43 [INFO] [FASE2] Registros que continúan en el pipeline: 87
+2026-11-12 19:31:43 [INFO] [FASE2] === Fin pipeline de saneamiento ===

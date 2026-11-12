@@ -1,0 +1,44 @@
+{
+  "lote": "raw_batch_202611",
+  "fecha_ejecucion": "2026-11-12 19:31:43",
+  "integridad_criptografica": {
+    "ficheros_totales": 3,
+    "ficheros_validados": 2,
+    "ficheros_rechazados": 1,
+    "tasa_integridad_pct": 66.67
+  },
+  "completitud": {
+    "registros_totales": 100,
+    "registros_sin_nulos": 95,
+    "tasa_completitud_bruto_pct": 95.0,
+    "tasa_completitud_final_pct": 100.0
+  },
+  "unicidad": {
+    "ids_unicos_final": 87,
+    "tasa_unicidad_final_pct": 100.0
+  },
+  "validez": {
+    "registros_validos": 87,
+    "registros_en_cuarentena": 13,
+    "tasa_validez_pct": 87.0,
+    "rechazos_por_motivo": {
+      "OUTLIER_IQR_IMPORTE_EUR": 3,
+      "NULO_EN_ID_TRANSACCION": 2,
+      "IMPORTE_NO_POSITIVO": 2,
+      "UNIDADES_MENOR_QUE_1": 2,
+      "NULO_EN_IMPORTE_EUR": 1,
+      "TIMESTAMP_INVALIDO": 1,
+      "TIMESTAMP_FUTURO": 1,
+      "TIMESTAMP_ANTERIOR_AL_ANIO_EN_CURSO": 1
+    }
+  },
+  "distribucion_importe_eur": {
+    "media": 70.99,
+    "mediana": 73.44,
+    "desviacion_estandar": 26.34,
+    "p25": 53.8,
+    "p75": 85.34,
+    "minimo": 12.5,
+    "maximo": 124.47
+  }
+}
